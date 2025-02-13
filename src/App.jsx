@@ -31,7 +31,7 @@ function App() {
 
   return (
     <div className="app-container">
-      <Router>
+      <Router basename="/ministry">
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/register" element={<Signup />} />
