@@ -200,55 +200,57 @@ const Schools = () => {
       </Modal>
 
       {/* Schools Table */}
-      <Table striped bordered hover responsive>
-        <thead className="table">
-          <tr>
-            <th>ID</th>
-            <th>School Name</th>
-            <th>Level</th>
-            <th>Region</th>
-            <th>District</th>
-            <th>Enrollment</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {schools.length > 0 ? (
-            schools.map((school) => (
-              <tr key={school.id}>
-                <td>{school.id}</td>
-                <td>{school.school_name}</td>
-                <td>{school.level}</td>
-                <td>{school.region}</td>
-                <td>{school.district}</td>
-                <td>{school.enrollment_number}</td>
-                <td>
-                  <Button
-                    variant="warning"
-                    size="sm"
-                    onClick={() => handleEdit(school)}
-                  >
-                    Edit
-                  </Button>{" "}
-                  <Button
-                    variant="danger"
-                    size="sm"
-                    onClick={() => handleDelete(school.id)}
-                  >
-                    Delete
-                  </Button>
+      <div className="table">
+        <Table striped bordered hover responsive>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>School Name</th>
+              <th>Level</th>
+              <th>Region</th>
+              <th>District</th>
+              <th>Enrollment</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {schools.length > 0 ? (
+              schools.map((school) => (
+                <tr key={school.id}>
+                  <td>{school.id}</td>
+                  <td>{school.school_name}</td>
+                  <td>{school.level}</td>
+                  <td>{school.region}</td>
+                  <td>{school.district}</td>
+                  <td>{school.enrollment_number}</td>
+                  <td>
+                    <Button
+                      variant="warning"
+                      size="sm"
+                      onClick={() => handleEdit(school)}
+                    >
+                      Edit
+                    </Button>{" "}
+                    <Button
+                      variant="danger"
+                      size="sm"
+                      onClick={() => handleDelete(school.id)}
+                    >
+                      Delete
+                    </Button>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="7" className="text-center">
+                  No schools found
                 </td>
               </tr>
-            ))
-          ) : (
-            <tr>
-              <td colSpan="7" className="text-center">
-                No schools found
-              </td>
-            </tr>
-          )}
-        </tbody>
-      </Table>
+            )}
+          </tbody>
+        </Table>
+      </div>
     </div>
   );
 };

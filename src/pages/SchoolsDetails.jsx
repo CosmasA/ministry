@@ -39,34 +39,36 @@ const SchoolsDetails = () => {
       <Button variant="outline-dark" className="mb-3" onClick={handleBack}>
         Back
       </Button>
-      <Table striped bordered hover responsive>
-        <thead className="table">
-          <tr>
-            <th>School Name</th>
-            <th>Level</th>
-            <th>District</th>
-            <th>Enrollment</th>
-          </tr>
-        </thead>
-        <tbody>
-          {schools.length > 0 ? (
-            schools.map((school) => (
-              <tr key={school.id}>
-                <td>{school.school_name}</td>
-                <td>{school.level}</td>
-                <td>{school.district}</td>
-                <td>{school.enrollment_number}</td>
-              </tr>
-            ))
-          ) : (
+      <div className="table">
+        <Table striped bordered hover responsive>
+          <thead>
             <tr>
-              <td colSpan="4" className="text-center">
-                No schools found for this region
-              </td>
+              <th>School Name</th>
+              <th>Level</th>
+              <th>District</th>
+              <th>Enrollment</th>
             </tr>
-          )}
-        </tbody>
-      </Table>
+          </thead>
+          <tbody>
+            {schools.length > 0 ? (
+              schools.map((school) => (
+                <tr key={school.id}>
+                  <td>{school.school_name}</td>
+                  <td>{school.level}</td>
+                  <td>{school.district}</td>
+                  <td>{school.enrollment_number}</td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="4" className="text-center">
+                  No schools found for this region
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </Table>
+      </div>
     </div>
   );
 };

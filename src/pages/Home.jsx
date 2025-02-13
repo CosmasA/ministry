@@ -11,8 +11,10 @@ const Home = () => {
       <div className="black"></div>
       <div className="yellow"></div>
       <div className="red"></div>
-      <SchoolCard />
-      <Charts />
+      <div className="home">
+        <SchoolCard />
+        <Charts />
+      </div>
     </div>
   );
 };
